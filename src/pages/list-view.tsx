@@ -36,6 +36,7 @@ export function ListView({ items, includeAddButton = true }: ListViewProps) {
                                 onChange={setNewItemName}
                                 placeholder="Enter item name..."
                                 onEnterPress={handleAddItem}
+                                autoFocus // eslint-disable-line -- autoFocus is intentionally used here for better UX when user explicitly triggers an input action
                             />
                             <div className="flex flex-row gap-4">
                                 <HiOutlineCheck

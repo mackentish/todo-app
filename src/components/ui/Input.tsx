@@ -4,6 +4,8 @@ interface InputProps {
     placeholder?: string;
     type?: string;
     onEnterPress?: () => void;
+    /** Should only be used when the user explicitly triggers an input action. */
+    autoFocus?: boolean;
 }
 
 export function Input({
@@ -12,6 +14,7 @@ export function Input({
     placeholder = 'Enter text...',
     type = 'text',
     onEnterPress,
+    autoFocus = false,
 }: InputProps) {
     return (
         <input
@@ -24,6 +27,7 @@ export function Input({
             ].join(' ')}
             type={type}
             placeholder={placeholder}
+            autoFocus={autoFocus} // eslint-disable-line -- autoFocus is intentionally used here for better UX when user explicitly triggers an input action
             onKeyDown={(e) => {
                 if (e.key === 'Enter') {
                     onEnterPress?.();

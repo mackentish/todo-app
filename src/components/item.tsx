@@ -35,6 +35,7 @@ export function ItemComponent({ item }: { item: Item }) {
                         onChange={setEditedName}
                         placeholder="Enter item name..."
                         onEnterPress={saveChanges}
+                        autoFocus // eslint-disable-line -- autoFocus is intentionally used here for better UX when user explicitly triggers an input action
                     />
                 ) : (
                     <Text className={item.completed ? 'line-through' : ''}>{item.name}</Text>
