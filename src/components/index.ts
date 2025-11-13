@@ -1,2 +1,2 @@
 export * from './ui';
-export * from './Item';
+export * from './ItemComponent';
