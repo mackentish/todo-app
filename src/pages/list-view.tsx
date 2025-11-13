@@ -35,6 +35,7 @@ export function ListView({ items, includeAddButton = true }: ListViewProps) {
                                 value={newItemName}
                                 onChange={setNewItemName}
                                 placeholder="Enter item name..."
+                                onEnterPress={handleAddItem}
                             />
                             <div className="flex flex-row gap-4">
                                 <HiOutlineCheck

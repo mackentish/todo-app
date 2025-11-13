@@ -34,6 +34,7 @@ export function ItemComponent({ item }: { item: Item }) {
                         value={editedName}
                         onChange={setEditedName}
                         placeholder="Enter item name..."
+                        onEnterPress={saveChanges}
                     />
                 ) : (
                     <Text className={item.completed ? 'line-through' : ''}>{item.name}</Text>

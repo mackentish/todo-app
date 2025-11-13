@@ -3,6 +3,7 @@ interface InputProps {
     onChange: (value: string) => void;
     placeholder?: string;
     type?: string;
+    onEnterPress?: () => void;
 }
 
 export function Input({
@@ -10,6 +11,7 @@ export function Input({
     onChange,
     placeholder = 'Enter text...',
     type = 'text',
+    onEnterPress,
 }: InputProps) {
     return (
         <input
@@ -22,6 +24,11 @@ export function Input({
             ].join(' ')}
             type={type}
             placeholder={placeholder}
+            onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                    onEnterPress?.();
+                }
+            }}
         />
     );
 }
