@@ -1,10 +1,11 @@
 import { ItemComponent } from '../components';
-import { itemsAtom } from '../atoms';
-import { useAtom } from 'jotai';
+import type { Item } from '../models';
 
-export function ListView() {
-    const [items] = useAtom(itemsAtom);
+interface ListViewProps {
+    items: Item[];
+}
 
+export function ListView({ items }: ListViewProps) {
     return (
         <ol>
             {items.map((item) => (

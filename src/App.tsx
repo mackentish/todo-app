@@ -1,24 +1,32 @@
-import { itemsAtom } from './atoms';
-import { useAtom } from 'jotai';
+import { useState } from 'react';
 import { ListView } from './pages';
-import { Button } from './components';
+import { Button, Text, SegmentedControl } from './components';
+import { useItems } from './hooks';
 
 function App() {
-    const [items, setItems] = useAtom(itemsAtom);
+    const { createItem, getAllItems, getCompletedItems } = useItems();
+    const [view, setView] = useState<'All' | 'Completed'>('All');
 
     const handleClick = () => {
-        const newItem = {
-            id: crypto.randomUUID(),
-            name: `Item ${items.length + 1}`,
-            completed: false,
-        };
-        setItems((prev) => [...prev, newItem]);
+        // TODO: Replace with a proper input mechanism
+        createItem(`Item ${Math.floor(Math.random() * 1000)}`);
     };
 
     return (
-        <div className="bg-gray-100 min-h-screen dark:bg-gray-900 flex flex-col gap-4 w-full justify-center items-center p-4">
-            <Button onClick={handleClick}>Add Item</Button>
-            <ListView />
+        <div className="bg-gray-100 min-h-screen dark:bg-gray-900 w-full p-4">
+            <div className="flex flex-col gap-4 w-full max-w-3xl items-center mx-auto">
+                <Text className="text-3xl font-bold mb-8">Todo App</Text>
+
+                <SegmentedControl<'All' | 'Completed'>
+                    segments={['All', 'Completed']}
+                    onSegmentChange={(selectedSegment) => setView(selectedSegment)}
+                />
+
+                <Button onClick={handleClick}>Add Item</Button>
+                <div className="max-h-96 overflow-y-auto mt-4">
+                    <ListView items={view === 'All' ? getAllItems() : getCompletedItems()} />
+                </div>
+            </div>
         </div>
     );
 }
