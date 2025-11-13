@@ -1,2 +1,2 @@
 export * from './ui';
-export * from './Item2';
+export * from './Item';
