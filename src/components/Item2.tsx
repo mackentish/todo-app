@@ -24,7 +24,7 @@ export function ItemComponent({ item }: { item: Item }) {
         <div className={ItemContainerClass}>
             <div className="flex flex-row gap-4 items-center w-full">
                 <input
-                    className="w-4 h-4 rounded-lg cursor-pointer"
+                    className="w-4 h-4 shrink-0 rounded-lg cursor-pointer"
                     type="checkbox"
                     checked={item.completed}
                     onChange={() => toggleItemCompletion(item.id)}
