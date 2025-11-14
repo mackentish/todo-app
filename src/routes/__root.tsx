@@ -19,7 +19,7 @@ function RootLayout() {
                 </div>
             </header>
 
-            <main className="flex-1 overflow-y-scroll">
+            <main className="flex-1 overflow-y-auto">
                 <div className="flex flex-col w-full max-w-3xl items-center mx-auto px-4 pb-8">
                     <Outlet />
                 </div>
