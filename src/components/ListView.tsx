@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Input, ItemComponent, ItemContainerClass, Text } from '../components';
+import { Input, ItemComponent, ItemContainerClass, Text } from '.';
 import { useItems } from '../hooks';
 import type { Item } from '../models';
 import { twMerge } from 'tailwind-merge';
