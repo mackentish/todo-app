@@ -77,8 +77,8 @@ export function ListView({ items, includeAddButton = true }: ListViewProps) {
 
                             <HiOutlinePlus
                                 className={[
-                                    'text-gray-300 dark:text-gray-600',
-                                    'group-hover:text-gray-500 dark:group-hover:text-gray-400',
+                                    'text-gray-400 dark:text-gray-700',
+                                    'group-hover:text-gray-600 dark:group-hover:text-gray-400',
                                     'transition-colors duration-200',
                                 ].join(' ')}
                                 fontSize={20}
