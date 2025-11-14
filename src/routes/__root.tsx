@@ -4,8 +4,8 @@ import { Text } from '../components';
 
 function RootLayout() {
     return (
-        <div className="bg-gray-100 dark:bg-gray-900 w-full h-screen">
-            <div className="flex flex-col md:flex-row gap-2 justify-between items-center mb-8 w-full p-4 bg-white dark:bg-gray-800 shadow-md">
+        <div className="bg-gray-100 dark:bg-gray-900 w-full h-screen flex flex-col overflow-hidden">
+            <header className="flex flex-col md:flex-row gap-2 justify-between items-center mb-8 w-full p-4 bg-white dark:bg-gray-800 shadow-md">
                 <Link to="/">
                     <Text className="text-3xl font-bold text-blue-500 dark:text-blue-500 hover:text-blue-700 transition-colors duration-200">
                         Taska
@@ -17,10 +17,14 @@ function RootLayout() {
                     <StyledLink to="/incomplete">Incomplete</StyledLink>
                     <StyledLink to="/complete">Complete</StyledLink>
                 </div>
-            </div>
-            <div className="flex flex-col w-full max-w-3xl items-center mx-auto px-4 pb-8">
-                <Outlet />
-            </div>
+            </header>
+
+            <main className="flex-1 overflow-y-auto">
+                <div className="flex flex-col w-full max-w-3xl items-center mx-auto px-4 pb-8">
+                    <Outlet />
+                </div>
+            </main>
+
             <TanStackRouterDevtools />
         </div>
     );
